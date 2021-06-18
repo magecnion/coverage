@@ -9,7 +9,7 @@ jobs:
       - image: circleci/golang:1.16
     steps:
       - checkout
-      - run: cd go && go test -race ./... -race -covermode=atomic -coverprofile=coverage.out
+      - run: go test -race -race -covermode=atomic -coverprofile=coverage.out
       - codecov/upload:
           file: ./go/coverage.out
           token: $CODECOV_TOKEN
