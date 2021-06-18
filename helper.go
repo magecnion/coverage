@@ -19,6 +19,9 @@ func Date(day, month, year int) (string, error) {
 }
 
 func Day(day int) string {
+	if day > 31 || day < 1 {
+		return ""
+	}
 	switch day {
 	case 1, 21, 31:
 		return fmt.Sprintf("%dst", day)
@@ -29,8 +32,6 @@ func Day(day int) string {
 	default:
 		return fmt.Sprintf("%dth", day)
 	}
-
-	return ""
 }
 
 func Month(month int) string {
