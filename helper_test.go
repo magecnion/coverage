@@ -16,6 +16,7 @@ func TestDate(t *testing.T) {
 		{3, 1, 1970, "3rd of Jan 1970", nil},
 		{1, 2, 1970, "1st of Feb 1970", nil},
 		{4, 2, 1970, "4th of Feb 1970", nil},
+		{4, 13, 1970, "4th of Feb 1970", nil},
 	}
 	for _, tc := range tcs {
 		dateStr, err := helper.Date(tc.day, tc.month, tc.year)
