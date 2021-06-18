@@ -1,0 +1,21 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@1.0.2
+
+jobs:
+  go:
+    docker:
+      - image: circleci/golang:1.16
+    steps:
+      - checkout
+      - run: cd go && go test -race ./... -race -covermode=atomic -coverprofile=coverage.out
+      - codecov/upload:
+          file: ./go/coverage.out
+          token: $CODECOV_TOKEN
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - go
