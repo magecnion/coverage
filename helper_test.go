@@ -1,6 +1,7 @@
 package helper_test
 
 import (
+	"errors"
 	"helper"
 	"testing"
 )
@@ -15,7 +16,7 @@ func TestDate(t *testing.T) {
 		{2, 1, 1970, "2nd of Jan 1970", nil},
 		{3, 1, 1970, "3rd of Jan 1970", nil},
 		{1, 2, 1970, "1st of Feb 1970", nil},
-		{4, 2, 1970, "4th of Feb 1970", nil},
+		{4, 2, 1970, "4th of Feb 1970", errors.New("invalid month")},
 		{4, 13, 1970, "4th of Feb 1970", nil},
 	}
 	for _, tc := range tcs {
